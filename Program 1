@@ -1,0 +1,38 @@
+Reimplement next two Python programs with Java:
+# Recursive function to calculate factorial of a number
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+num = int(input("Enter a number to calculate factorial: "))
+print("Factorial of", num, "is", factorial(num))
+
+
+#SOLUTION
+
+import java.util.Scanner;
+
+public class Factorial {
+    // Recursive method to calculate factorial
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;  // Base case: 0! = 1
+        } else {
+            return n * factorial(n - 1);  // Recursive call
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for input
+        System.out.print("Enter a number to calculate factorial: ");
+        int num = scanner.nextInt();
+
+        // Calculate and display the factorial
+        System.out.println("Factorial of " + num + " is " + factorial(num));
+
+        scanner.close();
+    }
+}
