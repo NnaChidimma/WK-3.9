@@ -1,0 +1,47 @@
+# Does Java support  first-class functions??? Why?
+
+def greet(name):
+    return f"Hello {name}!"
+def farewell(name):
+    return f"Goodbye {name}!"
+def handle_user(func):
+    name = input("Enter your name: ")
+    print(func(name))
+# Passing functions as arguments
+handle_user(greet)
+handle_user(farewell)
+
+#Solution
+import java.util.Scanner;
+import java.util.function.Function;
+
+public class FirstClassFunctions {
+
+    // Method to handle user input and apply a function
+    public static void handleUser(Function<String, String> func) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for input
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+
+        // Apply the function and display the result
+        System.out.println(func.apply(name));
+
+        scanner.close();
+    }
+
+    public static void main(String[] args) {
+        // Define the greet and farewell functions using lambda expressions
+        Function<String, String> greet = name -> "Hello " + name + "!";
+        Function<String, String> farewell = name -> "Goodbye " + name + "!";
+
+        // Pass functions as arguments
+        handleUser(greet);
+        handleUser(farewell);
+    }
+}
+
+#Java does not fully support first-class functions.
+ However, Java 8+ allows functional programming with lambda expressions and functional interfaces, providing some level of function passing.
+This allows Java to mimic first-class functions while remaining strongly typed and object-oriented.
